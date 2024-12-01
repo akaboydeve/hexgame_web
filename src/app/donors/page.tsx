@@ -1,14 +1,7 @@
 import { Button } from "@/components/ui/button"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import Link from "next/link"
-
-const donors = [
-  { name: 'Player1', amount: 50 },
-  { name: 'Player2', amount: 75 },
-  { name: 'Player3', amount: 100 },
-  { name: 'Player4', amount: 25 },
-  { name: 'Player5', amount: 200 },
-]
+import { recentDonors as donors } from "@/mcinfo"
 
 export default function DonorsPage() {
   return (

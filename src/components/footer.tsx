@@ -1,10 +1,10 @@
-import { serverIp, serverName } from '@/mcinfo'
+import { discordLink, serverIp, serverName } from '@/mcinfo'
 import Image from 'next/image'
 import Link from 'next/link'
 
 const Footer = () => {
   const navItems = [
-    // { href: '/store', label: 'Store' },
+    { href: '/store', label: 'Store' },
     { href: '/vote', label: 'Vote' },
     { href: '/rules', label: 'Rules' },
     { href: '/staff', label: 'Staff' },
@@ -13,14 +13,14 @@ const Footer = () => {
 
   return (
     <footer className="dark:bg-[#1A1A1A] border-t-2 border-[#FFD700]">
-      <div className="container mx-auto py-8 px-4">
+      <div className="container mx-auto p-4">
         <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
           <div className="flex flex-col items-center md:items-start space-y-2">
             {/* <p className="minecraft-font text-2xl text-[#FFD700]">{serverName}</p> */}
-            <p className="minecraft-font text-lg text-[#FFD700]">{serverIp}</p>
+            <p className="text-base font-bold text-[#FFD700]">{serverIp}</p>
             
             <Link
-              href="https://discord.gg/J6DfuSsuXV"
+              href={discordLink}
               target="_blank"
               rel="noopener noreferrer"
               className="group relative inline-block overflow-visible transition-transform duration-300 hover:-translate-y-1"
@@ -42,7 +42,7 @@ const Footer = () => {
               <Link
                 key={item.href}
                 href={item.href}
-                className="minecraft-font text-[#FFD700] hover:text-[#FFC800] transition-colors duration-200"
+                className="minecraft-font text-[#FFD700] text-lg hover:text-[#FFC800] transition-colors duration-200"
               >
                 {item.label}
               </Link>

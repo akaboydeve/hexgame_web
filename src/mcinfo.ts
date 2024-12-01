@@ -1,5 +1,6 @@
 export const serverName = 'Hexgame'
 export const serverIp = 'play.hexgame.in'
+export const discordLink = "https://discord.gg/J6DfuSsuXV"
 
 export const serverFeatures = [
   {
@@ -25,9 +26,9 @@ export const serverFeatures = [
 ]
 
 export const recentDonors = [
-  { name: 'Player123', amount: '$50', avatar: 'https://placehold.co/100/1A1A1A/FFD700.png?text=P1' },
-  { name: 'CraftMaster', amount: '$30', avatar: 'https://placehold.co/100/1A1A1A/FFD700.png?text=P2' },
-  { name: 'BlockBuilder', amount: '$25', avatar: 'https://placehold.co/100/1A1A1A/FFD700.png?text=P3' },
+  { name: 'Player123', amount: 50, avatar: 'https://placehold.co/100/1A1A1A/FFD700.png?text=P1' },
+  { name: 'CraftMaster', amount: 30, avatar: 'https://placehold.co/100/1A1A1A/FFD700.png?text=P2' },
+  { name: 'BlockBuilder', amount: 25, avatar: 'https://placehold.co/100/1A1A1A/FFD700.png?text=P3' },
 ]
 
 
@@ -52,11 +53,6 @@ export const initialStaff = [
   { name: 'Tanmay2456', role: 'Staff', avatar: 'https://mc-heads.net/avatar/noobie/100' },
 ]
 
-export const initialDonors = [
-  { name: 'Player1', amount: 50 },
-  { name: 'Player2', amount: 75 },
-  { name: 'Player3', amount: 100 },
-]
 
 export const ranks = [
   {
