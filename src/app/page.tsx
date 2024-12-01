@@ -7,12 +7,14 @@ import { recentDonors, serverFeatures, serverIp, serverName, upcomingEvents } fr
 import { TypewriterEffect } from '@/components/ui/typewriter-effect'
 import { motion } from 'motion/react'
 import { useInView } from '@/hooks/useInView'
+import { useToast } from '@/hooks/use-toast';
 
 export default function Home() {
   const [statsRef, statsInView] = useInView({ threshold: 0.2 });
   const [donorsRef, donorsInView] = useInView({ threshold: 0.2 });
   const [eventsRef, eventsInView] = useInView({ threshold: 0.2 });
   const [featuresRef, featuresInView] = useInView({ threshold: 0.2 });
+  const { toast } = useToast();
 
   return (
     <div className="space-y-12">
@@ -59,10 +61,15 @@ export default function Home() {
           Join the adventure at
         </motion.p>
         <motion.p 
-          className="text-3xl mb-6 minecraft-font text-[#5B8731] dark:text-[#FFD700]"
+          className="text-3xl mb-6 minecraft-font text-[#5B8731] dark:text-[#FFD700]  cursor-pointer active:scale-95 active:text-[#FFD700]/80 transition-transform"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.6 }}
+          onClick={() => {
+            navigator.clipboard.writeText(serverIp)
+              .then(() => toast({title: "Copied to clipboard"}))
+              .catch((err) => console.error("Failed to copy: ", err));
+          }}
         >
           {serverIp}
         </motion.p>
