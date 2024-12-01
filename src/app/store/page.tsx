@@ -39,14 +39,16 @@ export default function StorePage() {
 
     setLoading(true)
     try {
-      const response = await axios.post('http://helya.pylex.xyz:9418/submit', {
+      const res = await axios.post("/api/send-details", {
         discordName,
         minecraftIgn,
         rankName: purchaseRank?.name,
         payerName,
       });
+      
+      console.log(res)
 
-      if (response.status === 200) {
+      if (res.status === 200) {
         toast({title: 'Data sent to Discord successfully!'});
       }
     } catch (error) {
