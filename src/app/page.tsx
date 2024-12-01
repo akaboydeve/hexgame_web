@@ -8,6 +8,7 @@ import { TypewriterEffect } from '@/components/ui/typewriter-effect'
 import { motion } from 'motion/react'
 import { useInView } from '@/hooks/useInView'
 import { useToast } from '@/hooks/use-toast';
+import { Analytics } from "@vercel/analytics/react"
 
 export default function Home() {
   const [statsRef, statsInView] = useInView({ threshold: 0.2 });
