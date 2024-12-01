@@ -1,16 +1,14 @@
+"use client"
+
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import Image from "next/image"
-
-
-const staff = [
-  { name: 'Admin Steve', role: 'Server Owner', avatar: 'https://mc-heads.net/avatar/hypixel/100' },
-  { name: 'Mod Alex', role: 'Head Moderator', avatar: 'https://mc-heads.net/avatar/shadow/100' },
-  { name: 'Builder Creeper', role: 'Lead Builder', avatar: 'https://mc-heads.net/avatar/vennormal/100' },
-  { name: 'Dev Enderman', role: 'Plugin Developer', avatar: 'https://mc-heads.net/avatar/akaboy/100' },
-]
+import { initialStaff as staff } from "@/mcinfo"
+import { useToast } from "@/hooks/use-toast"
 
 export default function StaffPage() {
+  const { toast } = useToast()
+
   return (
     <div className="container mx-auto px-4 py-8">
       <h1 className="text-4xl font-bold mb-8 text-center">Our Staff</h1>
@@ -32,7 +30,7 @@ export default function StaffPage() {
         ))}
       </div>
       <div className="mt-12 text-center">
-        <Button size="lg">Join Our Team</Button>
+        <Button size="lg" onClick={() => toast({title: "Coming Soon", description: "Till then enjoy the server!"})} >Join Our Team</Button>
       </div>
     </div>
   )
