@@ -44,9 +44,12 @@ export const initialRanks = [
 ]
 
 export const initialStaff = [
-  { name: 'Admin Steve', role: 'Server Owner', avatar: '/placeholder.svg' },
-  { name: 'Mod Alex', role: 'Head Moderator', avatar: '/placeholder.svg' },
-  { name: 'Builder Creeper', role: 'Lead Builder', avatar: '/placeholder.svg' },
+  { name: 'AkaBoy', role: 'Server Owner', avatar: 'https://mc-heads.net/avatar/hypixel/100' },
+  { name: 'Tegbir', role: 'Management', avatar: 'https://mc-heads.net/avatar/TommyInnit/100' },
+  { name: '!NotVe4n', role: 'Head Admin', avatar: 'https://mc-heads.net/avatar/Technoblade/100' },
+  { name: '! kabeer123', role: 'Head Admin', avatar: 'https://mc-heads.net/avatar/Proiit/100' },
+  { name: 'vryoal', role: 'Head Admin', avatar: 'https://mc-heads.net/avatar/Ph1lza/100' },
+  { name: 'Tanmay2456', role: 'Staff', avatar: 'https://mc-heads.net/avatar/noobie/100' },
 ]
 
 export const initialDonors = [
