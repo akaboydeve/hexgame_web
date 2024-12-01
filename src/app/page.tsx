@@ -77,7 +77,7 @@ export default function Home() {
 
       {/* Call to Action */}
       <section className="text-center space-y-4">
-        <Link href="/store">
+        {/* <Link href="/store">
           <motion.button 
             className="minecraft-btn text-xl px-8 py-3"
             whileHover={{ scale: 1.05 }}
@@ -85,7 +85,7 @@ export default function Home() {
           >
             View Store
           </motion.button>
-        </Link>
+        </Link> */}
         <motion.p 
           className="text-[#FFD700]/80"
           initial={{ opacity: 0, y: 20 }}
