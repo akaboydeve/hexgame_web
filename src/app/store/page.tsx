@@ -29,7 +29,7 @@ export default function StorePage() {
     <div className="container mx-auto px-4 py-8">
       <h1 className="text-4xl font-bold mb-8 text-center minecraft-font text-[#FFD700]">Server Store</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-        {storeItems.map((item) => (
+        {storeItems.map((item, idx) => (
           <div key={item.id} className="minecraft-card group hover:scale-105 transition-transform duration-200">
             <div className="relative w-full h-[200px] mb-4">
               <Image
@@ -43,8 +43,8 @@ export default function StorePage() {
             <p className="text-[#FFD700] text-center text-xl mb-4">Rs.{item.price}/month</p>
             <div className="space-y-4 mb-4">
               <ItemList title="Features" items={item.features.slice(0, 3)} />
-              <ItemList title="Commands" items={item.commands.slice(0, 3)} />
-              <ItemList title="Weekly Rewards" items={item.weeklyRewards.slice(0, 2)} />
+              <ItemList title="Commands" items={item.commands.slice(3, 6)} />
+              <ItemList title="Weekly Rewards" items={item.weeklyRewards} />
             </div>
             <div className="flex justify-between items-center">
               <Button variant="outline" onClick={() => openModal(item)}>See More</Button>
@@ -86,6 +86,7 @@ function ItemList({ title, items }: { title: string, items: string[] }) {
           {items.map((item, index) => (
             <li key={index} className="text-sm text-[#5B8731]">{item}</li>
           ))}
+          {items.length == 3 && <li className="text-sm text-[#85d23c] font-[500]">and more...</li>}
         </ul>
       </CardContent>
     </Card>
