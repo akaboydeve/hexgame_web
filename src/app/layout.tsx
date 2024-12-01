@@ -4,6 +4,7 @@ import { Inter } from 'next/font/google'
 import Header from '@/components/header'
 import Footer from '@/components/footer'
 import { ThemeProvider } from '@/components/theme-provider'
+import { Toaster } from '@/components/ui/toaster'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -24,6 +25,7 @@ export default function RootLayout({
           <Header />
           <main className="flex-grow container mx-auto px-4 py-8">
             {children}
+            <Toaster />
           </main>
           <Footer />
         </ThemeProvider>
