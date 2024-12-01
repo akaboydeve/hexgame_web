@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+:root {
+  --dirt-brown: #8B5A2B;
+  --grass-green: #5B8731;
+  --stone-gray: #828282;
+  --oak-wood: #9B6E41;
+  --server-yellow: #FFD700;
+  --server-black: #1A1A1A;
+}
+
+@layer base {
+  body {
+    @apply bg-[#f7f7f7] text-[#333333] dark:bg-[#1A1A1A] dark:text-[#FFD700];
+  }
+}
+
+@layer components {
+  .minecraft-btn {
+    @apply px-4 py-2 font-bold uppercase bg-[#5B8731] text-white dark:bg-[#FFD700] dark:text-[#1A1A1A] 
+           border-b-4 border-[#3F5E22] dark:border-[#B8860B]
+           rounded-sm hover:bg-[#6B9B3C] dark:hover:bg-[#FFC800] hover:border-[#4A6D28] dark:hover:border-[#8B6914] 
+           transition-colors duration-200 
+           minecraft-font shadow-md hover:shadow-lg active:border-b-0 active:mt-1 active:mb-[-4px];
+  }
+
+  .minecraft-input {
+    @apply w-full px-3 py-2 bg-white dark:bg-[#2A2A2A] text-[#333333] dark:text-[#FFD700] 
+           border-2 border-[#5B8731] dark:border-[#FFD700]
+           rounded-none focus:outline-none focus:border-[#6B9B3C] dark:focus:border-[#FFC800] 
+           minecraft-font placeholder-[#666666] dark:placeholder-[#FFD700]/50;
+  }
+
+  .minecraft-card {
+    @apply bg-white dark:bg-[#2A2A2A] border-2 border-[#5B8731] dark:border-[#FFD700] 
+           rounded-none shadow-md hover:shadow-[#5B8731]/20 dark:hover:shadow-[#FFD700]/20 
+           transition-all duration-300 overflow-hidden p-4;
+  }
+
+  .gamemode-card {
+    @apply bg-white dark:bg-[#2A2A2A] border-2 border-[#5B8731] dark:border-[#FFD700] 
+           rounded-lg shadow-md hover:shadow-[#5B8731]/20 dark:hover:shadow-[#FFD700]/20 
+           transition-all duration-300 overflow-hidden;
+  }
+}
+
+@layer utilities {
+  .minecraft-font {
+    font-family: 'VT323', monospace;
+  }
+
+  .pixelated {
+    image-rendering: pixelated;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-[#E0E0E0] dark:bg-[#2A2A2A];
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-[#5B8731] dark:bg-[#FFD700] border-2 border-[#E0E0E0] dark:border-[#2A2A2A];
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-[#6B9B3C] dark:bg-[#FFC800];
+}
+
