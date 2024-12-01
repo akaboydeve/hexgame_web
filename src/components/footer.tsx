@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 const Footer = () => {
   const navItems = [
-    { href: '/store', label: 'Store' },
+    // { href: '/store', label: 'Store' },
     { href: '/vote', label: 'Vote' },
     { href: '/rules', label: 'Rules' },
     { href: '/staff', label: 'Staff' },
