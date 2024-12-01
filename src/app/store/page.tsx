@@ -83,7 +83,7 @@ export default function StorePage() {
             </div>
             <div className="flex justify-between items-center">
               <Button variant="outline" onClick={() => openModal(item)}>See More</Button>
-              <Button onClick={() => openPurchaseModal(item)}>Purchase</Button>
+              <Button onClick={() => openPurchaseModal(item)} className="bg-green-800 hover:bg-green-700">Purchase</Button>
             </div>
           </div>
         ))}
@@ -142,7 +142,7 @@ export default function StorePage() {
             </form>
           </div>
           <DialogFooter>
-            <Button variant="outline" onClick={() => setPurchaseRank(null)}>Cancel</Button>
+            <Button variant="outline" onClick={() => setPurchaseRank(null)} className="bg-gray-800 hover:bg-gray-700">Cancel</Button>
             <Button onClick={handlePurchase}>{loading ? (<>Confirming <Loader /></>) : ("Confirm") }</Button>
           </DialogFooter>
         </DialogContent>
