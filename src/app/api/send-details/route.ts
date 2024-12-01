@@ -1,5 +1,4 @@
 import axios from "axios";
-import { s } from "motion/react-client";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest) {
