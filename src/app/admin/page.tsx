@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { initialDonors, initialRanks, initialStaff } from "@/mcinfo"
+import { recentDonors, initialRanks, initialStaff } from "@/mcinfo"
 import { Trash2 } from "lucide-react"
 
 
@@ -13,7 +13,7 @@ import { Trash2 } from "lucide-react"
 export default function AdminDashboard() {
   const [ranks, setRanks] = useState(initialRanks)
   const [staff, setStaff] = useState(initialStaff)
-  const [donors, setDonors] = useState(initialDonors)
+  const [donors, setDonors] = useState(recentDonors)
 
   const [rankData, setRankData] = useState({
     name: "",
@@ -46,7 +46,7 @@ export default function AdminDashboard() {
   }
 
   const addDonor = () => {
-    setDonors([...donors, { name: 'New Donor', amount: 0 }])
+    setDonors([...donors, { name: 'New Donor', amount: 0, avatar: 'https://placehold.co/100/1A1A1A/FFD700.png?text=P3' }])
   }
 
   return (
