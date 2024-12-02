@@ -86,6 +86,34 @@ export default function Home() {
         </motion.p>
       </section>
 
+      <motion.section
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="text-center"
+      >
+        <h2 className="text-3xl font-bold mb-6 minecraft-font text-[#FFD700]">
+          Our Games
+        </h2>
+        <motion.div
+          className="minecraft-card p-6 max-w-2xl mx-auto"
+          whileHover={{ scale: 1.02 }}
+          transition={{ duration: 0.2 }}
+        >
+          <p className="text-[#FFD700] text-lg mb-4 minecraft-font">
+            We are creating our own games! Go down and play
+          </p>
+          <a
+            href="https://gamestore.hexgame.in"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block minecraft-btn text-xl px-8 py-3 hover:scale-105 transition-transform"
+          >
+            Visit Our Games
+          </a>
+        </motion.div>
+      </motion.section>
+
       {/* Server Stats */}
       <motion.section 
         ref={statsRef as React.RefObject<HTMLElement>}
@@ -180,6 +208,8 @@ export default function Home() {
           ))}
         </div>
       </motion.section>
+
+      
 
       {/* Server Features */}
       <motion.section
