@@ -9,6 +9,11 @@ const Footer = () => {
     { href: '/rules', label: 'Rules' },
     { href: '/staff', label: 'Staff' },
     { href: '/about', label: 'About' },
+    { href: '/shipping', label: 'Shipping' },
+    { href: '/tos', label: 'Terms of Service' },
+    { href: '/privacy', label: 'Privacy Policy' },
+    { href: '/refund', label: 'Refunds' },
+    { href: '/contact', label: 'Contact Us' },
   ]
 
   return (
