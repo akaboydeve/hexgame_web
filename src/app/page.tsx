@@ -221,27 +221,6 @@ const PixelLetter = ({ letter, color }: { letter: string; color: string }) => {
       [false, true, false, true, false],
       [true, false, false, false, true],
     ],
-    'G': [
-      [true, true, true, true, true],
-      [true, false, false, false, false],
-      [true, false, true, true, true],
-      [true, false, false, false, true],
-      [true, true, true, true, true],
-    ],
-    'A': [
-      [false, true, true, true, false],
-      [true, false, false, false, true],
-      [true, true, true, true, true],
-      [true, false, false, false, true],
-      [true, false, false, false, true],
-    ],
-    'M': [
-      [true, false, false, false, true],
-      [true, true, false, true, true],
-      [true, false, true, false, true],
-      [true, false, false, false, true],
-      [true, false, false, false, true],
-    ],
     'O': [
       [true, true, true, true, true],
       [true, false, false, false, true],
