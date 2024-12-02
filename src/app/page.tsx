@@ -50,19 +50,19 @@ export default function Home() {
         >
           Join the adventure at
         </motion.p>
-        <motion.span 
-          className="text-3xl mb-6 minecraft-font text-[#5B8731] dark:text-[#FFD700]  cursor-pointer active:scale-95 active:text-[#FFD700]/80 transition-transform"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.6 }}
-          onClick={() => {
-            navigator.clipboard.writeText(serverIp)
-              .then(() => toast({title: "Copied to clipboard"}))
-              .catch((err) => console.error("Failed to copy: ", err));
-          }}
-        >
-          {serverIp}
-        </motion.span>
+          <motion.button 
+            className="minecraft-btn px-2 py-1 dark:text-white dark:bg-[#5B8731] dark:hover:bg-[#6B9B3C] dark:border-[#3F5E22] dark:hover:border-[#4A6D28] text-3xl mb-6 minecraft-font cursor-pointer active:scale-95 transition-transform"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.6 }}
+            onClick={() => {
+              navigator.clipboard.writeText(serverIp)
+                .then(() => toast({title: "Copied to clipboard"}))
+                .catch((err) => console.error("Failed to copy: ", err));
+            }}
+          >
+            {serverIp}
+          </motion.button>
       </section>
 
       {/* Call to Action */}
