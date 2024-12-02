@@ -34,6 +34,14 @@ const Footer = () => {
             <div>
               <h2 className="text-xl font-bold text-[#FFD700] minecraft-font">{serverName}</h2>
               <p className="text-base text-[#FFD700]/80">{serverIp}</p>
+              <a
+                href="https://gamestore.hexgame.in"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#5B8731] hover:text-[#6B9B3C] minecraft-font"
+              >
+                Visit Our Games
+              </a>
             </div>
           </div>
           <nav className="flex flex-wrap justify-center mb-6">
