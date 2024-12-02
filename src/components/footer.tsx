@@ -12,7 +12,7 @@ const Footer = () => {
   ]
 
   const legalLinks = [
-    { href: '/PrivacyPolcy', label: 'Privacy Policy' },
+    { href: '/PrivacyPolicy', label: 'Privacy Policy' },
     { href: '/TermsAndConditions', label: 'Terms of Service' },
     { href: '/CancellationAndRefund', label: 'Refund Policy' },
     { href: '/ContactUs', label: 'Contact Us' },
