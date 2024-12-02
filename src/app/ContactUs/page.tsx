@@ -27,8 +27,6 @@ export default function ContactPage() {
 
   const handleSubmit = async(e: React.FormEvent) => {
     e.preventDefault()
-    // Here you would typically send the form data to your server
-    console.log('Form submitted:', formData)
     setLoading(true)
     try {
       const res = await axios.post("/api/contact", formData);
@@ -45,7 +43,6 @@ export default function ContactPage() {
     finally {
       setLoading(false);
     }
-    // Reset form after submission
     setFormData({ name: '', email: '', message: '' })
   }
 
@@ -103,7 +100,7 @@ export default function ContactPage() {
           </div>
           <motion.button
             type="submit"
-            className="minecraft-btn w-full"
+            className="minecraft-btn w-full flex items-center justify-center"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
