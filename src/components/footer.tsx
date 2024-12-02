@@ -12,7 +12,7 @@ const Footer = () => {
     { href: '/ShippingAndDelivery', label: 'Shipping' },
     { href: '/TermsAndConditions', label: 'Terms And Conditions' },
     { href: '/PrivacyPolicy', label: 'Privacy Policy' },
-    { href: '/CancellationAndRefunds', label: 'Refunds' },
+    { href: '/CancellationAndRefund', label: 'Refunds' },
     { href: '/ContactUs', label: 'Contact Us' },
   ]
 
