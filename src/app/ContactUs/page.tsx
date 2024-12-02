@@ -31,7 +31,7 @@ export default function ContactPage() {
     console.log('Form submitted:', formData)
     setLoading(true)
     try {
-      const res = await axios.post("/api/send-details", formData);
+      const res = await axios.post("/api/contact", formData);
       
       console.log(res)
 
