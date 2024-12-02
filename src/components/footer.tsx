@@ -16,6 +16,7 @@ const Footer = () => {
     { href: '/TermsAndConditions', label: 'Terms of Service' },
     { href: '/CancellationAndRefund', label: 'Refund Policy' },
     { href: '/ContactUs', label: 'Contact Us' },
+    { href: '/ShippingAndDelivery', label: 'Shipping' },
   ]
 
   return (
@@ -46,7 +47,7 @@ const Footer = () => {
               </Link>
             ))}
           </nav>
-          <div className="grid grid-cols-2 gap-4 text-center">
+          <div className="grid grid-cols-2 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-3 gap-4 text-center">
             {legalLinks.map((link) => (
               <Link
                 key={link.href}
@@ -74,6 +75,17 @@ const Footer = () => {
             <Image src={"/discord.svg"} alt="discord" width={32} height={32} />
             <span className="sr-only">Discord community</span>
           </a>
+          <p className="text-[#FFD700]/60 text-sm mb-4 sm:mb-0">
+            Website made by
+            <a
+              href={"https://mail.google.com/mail/?view=cm&to=nhero.dev@gmail.com"}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#009dff]/60 hover:text-[#007bff]"
+            > 
+              {" "}NHero
+            </a>
+          </p>
         </div>
       </div>
     </footer>
