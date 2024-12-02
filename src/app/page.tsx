@@ -37,21 +37,10 @@ export default function Home() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          <motion.div 
-            className="w-16 h-16 bg-[#5B8731] dark:bg-[#FFD700]"
-            whileHover={{ rotate: 360 }}
-            transition={{ duration: 0.5 }}
-          />
-          <motion.div 
-            className="w-16 h-16 bg-[#8B5A2B]"
-            whileHover={{ scale: 1.2 }}
-            transition={{ duration: 0.3 }}
-          />
-          <motion.div 
-            className="w-16 h-16 bg-[#828282]"
-            whileHover={{ borderRadius: "50%" }}
-            transition={{ duration: 0.3 }}
-          />
+          <PixelLetter letter="H" color="bg-[#FF0000]" />
+          <PixelLetter letter="E" color="bg-[#FF0000]" />
+          <PixelLetter letter="X" color="bg-[#FF0000]" />
+          <PixelLetter letter="O" color="bg-[#FF0000]" />
         </motion.div>
         <motion.p 
           className="text-2xl mb-2 minecraft-font"
@@ -61,7 +50,7 @@ export default function Home() {
         >
           Join the adventure at
         </motion.p>
-        <motion.p 
+        <motion.span 
           className="text-3xl mb-6 minecraft-font text-[#5B8731] dark:text-[#FFD700]  cursor-pointer active:scale-95 active:text-[#FFD700]/80 transition-transform"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -73,7 +62,7 @@ export default function Home() {
           }}
         >
           {serverIp}
-        </motion.p>
+        </motion.span>
       </section>
 
       {/* Call to Action */}
@@ -208,3 +197,75 @@ export default function Home() {
   )
 }
 
+
+const PixelLetter = ({ letter, color }: { letter: string; color: string }) => {
+  const pixelMap: { [key: string]: boolean[][] } = {
+    'H': [
+      [true, false, false, false, true],
+      [true, false, false, false, true],
+      [true, true, true, true, true],
+      [true, false, false, false, true],
+      [true, false, false, false, true],
+    ],
+    'E': [
+      [true, true, true, true, true],
+      [true, false, false, false, false],
+      [true, true, true, true, false],
+      [true, false, false, false, false],
+      [true, true, true, true, true],
+    ],
+    'X': [
+      [true, false, false, false, true],
+      [false, true, false, true, false],
+      [false, false, true, false, false],
+      [false, true, false, true, false],
+      [true, false, false, false, true],
+    ],
+    'G': [
+      [true, true, true, true, true],
+      [true, false, false, false, false],
+      [true, false, true, true, true],
+      [true, false, false, false, true],
+      [true, true, true, true, true],
+    ],
+    'A': [
+      [false, true, true, true, false],
+      [true, false, false, false, true],
+      [true, true, true, true, true],
+      [true, false, false, false, true],
+      [true, false, false, false, true],
+    ],
+    'M': [
+      [true, false, false, false, true],
+      [true, true, false, true, true],
+      [true, false, true, false, true],
+      [true, false, false, false, true],
+      [true, false, false, false, true],
+    ],
+    'O': [
+      [true, true, true, true, true],
+      [true, false, false, false, true],
+      [true, false, false, false, true],
+      [true, false, false, false, true],
+      [true, true, true, true, true],
+    ]
+  };
+
+  return (
+    <motion.div 
+      className={`grid grid-cols-5 gap-0.5 p-1  rounded`}
+      whileHover={{ scale: 1.1 }}
+      transition={{ type: "spring", stiffness: 400, damping: 10 }}
+    >
+      {pixelMap[letter].flat().map((pixel, index) => (
+        <motion.div 
+          key={index}
+          className={`w-3 h-3 ${pixel && color}`}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: index * 0.01 }}
+        />
+      ))}
+    </motion.div>
+  );
+};

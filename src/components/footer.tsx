@@ -3,61 +3,77 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 const Footer = () => {
-  const navItems = [
+  const navLinks = [
+    { href: '/', label: 'Home' },
     { href: '/store', label: 'Store' },
     { href: '/vote', label: 'Vote' },
-    { href: '/rules', label: 'Rules' },
     { href: '/staff', label: 'Staff' },
     { href: '/about', label: 'About' },
-    { href: '/ShippingAndDelivery', label: 'Shipping' },
-    { href: '/TermsAndConditions', label: 'Terms And Conditions' },
-    { href: '/PrivacyPolicy', label: 'Privacy Policy' },
-    { href: '/CancellationAndRefund', label: 'Refunds' },
+  ]
+
+  const legalLinks = [
+    { href: '/PrivacyPolcy', label: 'Privacy Policy' },
+    { href: '/TermsAndConditions', label: 'Terms of Service' },
+    { href: '/CancellationAndRefund', label: 'Refund Policy' },
     { href: '/ContactUs', label: 'Contact Us' },
   ]
 
   return (
     <footer className="dark:bg-[#1A1A1A] border-t-2 border-[#FFD700]">
-      <div className="container mx-auto p-4">
-        <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-          <div className="flex flex-col items-center md:items-start space-y-2">
-            {/* <p className="minecraft-font text-2xl text-[#FFD700]">{serverName}</p> */}
-            <p className="text-base font-bold text-[#FFD700]">{serverIp}</p>
-            
-            <Link
-              href={discordLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative inline-block overflow-visible transition-transform duration-300 hover:-translate-y-1"
-            >
-              <Image
-                src="/discord.svg"
-                alt="discord logo"
-                width={32}
-                height={32}
-                className=" transition-transform duration-300 group-hover:scale-125"
-              />
-            </Link>
-
-
+      <div className="container mx-auto px-4 pb-4">
+        <div className="flex flex-col md:flex-row justify-between items-center py-4">
+          <div className="flex items-center mb-6">
+            <Image
+              src="/hexgame.png"
+              alt={`${serverName} Logo`}
+              width={40}
+              height={40}
+              className="mr-3"
+            />
+            <div>
+              <h2 className="text-xl font-bold text-[#FFD700] minecraft-font">{serverName}</h2>
+              <p className="text-base text-[#FFD700]/80">{serverIp}</p>
+            </div>
           </div>
-          
-          <nav className="flex flex-wrap justify-center gap-6">
-            {navItems.map((item) => (
+          <nav className="flex flex-wrap justify-center mb-6">
+            {navLinks.map((link) => (
               <Link
-                key={item.href}
-                href={item.href}
-                className="minecraft-font text-[#FFD700] text-lg hover:text-[#FFC800] transition-colors duration-200"
+                key={link.href}
+                href={link.href}
+                className="text-[#FFD700] hover:text-[#FFC800] mx-3 my-1 text-lg minecraft-font"
               >
-                {item.label}
+                {link.label}
               </Link>
             ))}
           </nav>
-
-          <div className="flex flex-col items-center md:items-end space-y-2">
-            <p className="text-[#FFD700]/80">&copy;{new Date().getFullYear()} {serverName}</p>
-            <p className="text-[#FFD700]/60">All rights reserved</p>
+          <div className="grid grid-cols-2 gap-4 text-center">
+            {legalLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="text-[#FFD700]/80 hover:text-[#FFC800] text-base minecraft-font"
+              >
+                {link.label}
+              </Link>
+            ))}
           </div>
+        </div>
+        
+        <hr className="mb-2 border-gray-200 sm:mx-auto dark:border-gray-700 lg:mb-3" />
+
+        <div className="flex flex-col sm:flex-row justify-between items-center">
+          <p className="text-[#FFD700]/60 text-sm mb-4 sm:mb-0">
+            © {new Date().getFullYear()} {serverName}. All Rights Reserved.
+          </p>
+          <a
+            href={discordLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[#FFD700]/60 hover:text-[#FFC800]"
+          > 
+            <Image src={"/discord.svg"} alt="discord" width={32} height={32} />
+            <span className="sr-only">Discord community</span>
+          </a>
         </div>
       </div>
     </footer>
