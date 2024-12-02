@@ -1,6 +1,9 @@
 "use client"
 
+import { useToast } from '@/hooks/use-toast'
 import { serverIp } from '@/mcinfo'
+import axios from 'axios'
+import { Loader2 } from 'lucide-react'
 import { motion } from 'motion/react'
 import { useState } from 'react'
 
@@ -10,6 +13,9 @@ export default function ContactPage() {
     email: '',
     message: ''
   })
+  const [loading, setLoading] = useState(false)
+
+  const { toast } = useToast()
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
@@ -19,10 +25,26 @@ export default function ContactPage() {
     }))
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async(e: React.FormEvent) => {
     e.preventDefault()
     // Here you would typically send the form data to your server
     console.log('Form submitted:', formData)
+    setLoading(true)
+    try {
+      const res = await axios.post("/api/send-details", formData);
+      
+      console.log(res)
+
+      if (res.status === 200) {
+        toast({title: 'Data sent to Discord successfully!'});
+      }
+    } catch (error) {
+      console.error('Error sending data to Discord:', error);
+      toast({title: 'Failed to send data.', variant: "destructive"});
+    }
+    finally {
+      setLoading(false);
+    }
     // Reset form after submission
     setFormData({ name: '', email: '', message: '' })
   }
@@ -85,7 +107,7 @@ export default function ContactPage() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            Send Message
+            {loading ? (<>Sending... <Loader2 /></>) : 'Send Message'}
           </motion.button>
         </form>
       </motion.div>
