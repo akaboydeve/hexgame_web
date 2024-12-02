@@ -31,13 +31,12 @@ export default function ContactPage() {
     try {
       const res = await axios.post("/api/contact", formData);
       
-      console.log(res)
 
       if (res.status === 200) {
         toast({title: 'Data sent to Discord successfully!'});
       }
     } catch (error) {
-      console.error('Error sending data to Discord:', error);
+      console.error('Error sending data to Discord:');
       toast({title: 'Failed to send data.', variant: "destructive"});
     }
     finally {
