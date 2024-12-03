@@ -1,6 +1,9 @@
-# robots.txt
-
-# Allow all search engines to crawl the site
+# *
 User-agent: *
-Disallow: /api/
-Disallow: /admin/
+Allow: /
+
+# Host
+Host: https://hexgame.in
+
+# Sitemaps
+Sitemap: https://hexgame.in/sitemap.xml
