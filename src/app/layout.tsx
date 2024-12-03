@@ -13,6 +13,11 @@ export const metadata: Metadata = {
   title: 'Hexgame Minecraft Server',
   description: 'Join the best Minecraft server experience with unique features, an active community, and endless adventures!',
   keywords: 'Minecraft, Minecraft server, Hexgame, Minecraft SMP, Minecraft survival, Hexgame server, Minecraft PvP',
+  verification: {
+    other: {
+      "google-site-verification": ["Hwwu7eonwv8T6CexuG3uFOHHOkQGXSPXkbIqNqEtvmw"],
+    }
+  },
   openGraph: {
     title: 'Hexgame Minecraft Server',
     description: 'Join the best Minecraft server experience with unique features, an active community, and endless adventures!',
