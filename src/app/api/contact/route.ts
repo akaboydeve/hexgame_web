@@ -1,7 +1,14 @@
+import { websiteLink } from "@/mcinfo";
 import axios from "axios";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest) {
+  const origin = req.nextUrl.origin;
+  
+  if (origin !== websiteLink) {
+    return NextResponse.json({success: false}, {status: 403});
+  }
+  
   const { name, email, message } = await req.json();
   
   try {
