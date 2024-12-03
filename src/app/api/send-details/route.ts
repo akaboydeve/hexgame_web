@@ -2,10 +2,10 @@ import axios from "axios";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest) {
-  const websiteLinks = ["https://hexgame.in", "https://hexgame.in/", "https://www.hexgame.in", "https://www.hexgame.in/"];
-  const origin = req.nextUrl.origin;
+  const allowedLinks = ["https://hexgame.in", "https://www.hexgame.in"];
+  const origin = req.headers.get("origin");
   
-  if (!websiteLinks.includes(origin)) {
+  if (!origin || !allowedLinks.includes(origin)) {
     return NextResponse.json({success: false}, {status: 403});
   }
 
