@@ -59,7 +59,7 @@ export default function RanksPage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#1A1A1A] py-8 px-4 bg-cover bg-center" style={{backgroundImage: "url('/dirt-background.png')"}}>
+    <div className="min-h-screen bg-[#1A1A1A] py-8 px-4 lg:px-0 xl:px-4 mx-auto max-w-6xl">
       <motion.h1 
         className="text-5xl font-bold text-[#FFD700] minecraft-font text-center mb-12"
         initial={{ opacity: 0, y: -50 }}
@@ -83,8 +83,8 @@ export default function RanksPage() {
                 <Image
                   src={rank.image}
                   alt={rank.name}
-                  layout="fill"
-                  objectFit="contain"
+                  fill
+                  className="object-contain"
                 />
               </div>
               <h2 className="text-3xl font-bold mb-2 minecraft-font text-center text-[#FFA500]">
@@ -111,7 +111,7 @@ export default function RanksPage() {
       </div>
 
       <motion.div 
-        className="mt-16 bg-[#2C2C2C] border-4 border-[#FFD700] rounded-lg overflow-x-auto"
+        className="mt-16 bg-[#2C2C2C] border-2 hidden lg:block border-[#FFD700] rounded-lg max-w-6xl mx-auto overflow-x-auto"
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.5 }}
@@ -174,7 +174,7 @@ export default function RanksPage() {
 
       {/* Details Dialog */}
       <Dialog open={!!selectedRank} onOpenChange={() => setSelectedRank(null)}>
-        <DialogContent className="max-h-[80vh] overflow-y-auto bg-[#2C2C2C] border-4 border-[#FFD700] z-[1001]">
+        <DialogContent className="max-h-[90vh] overflow-y-auto bg-[#2C2C2C] border-4 border-[#FFD700] z-[1001]">
           <DialogHeader>
             <DialogTitle className="text-2xl font-bold minecraft-font text-[#FFD700]">{selectedRank?.name} Details</DialogTitle>
           </DialogHeader>
