@@ -5,7 +5,7 @@ export async function POST(req: NextRequest) {
   const { name, email, message } = await req.json();
   
   try {
-    const response = await axios.post('http://helya.pylex.xyz:9418/contact', {
+    const response = await axios.post('http://in1.hexgame.in:7000/contact', {
       name,
       email,
       message

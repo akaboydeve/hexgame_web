@@ -5,7 +5,7 @@ export async function POST(req: NextRequest) {
   const { discordName, minecraftIgn, rankName, payerName } = await req.json();
   
   try {
-    const response = await axios.post('http://helya.pylex.xyz:9418/submit', {
+    const response = await axios.post('http://in1.hexgame.in:7000/submit', {
       discordName,
       minecraftIgn,
       rankName,
