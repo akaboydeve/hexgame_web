@@ -27,9 +27,9 @@ export const serverFeatures = [
 ]
 
 export const recentDonors = [
-  { name: 'Player123', amount: 50, avatar: 'https://placehold.co/100/1A1A1A/FFD700.png?text=P1' },
-  { name: 'CraftMaster', amount: 30, avatar: 'https://placehold.co/100/1A1A1A/FFD700.png?text=P2' },
-  { name: 'BlockBuilder', amount: 25, avatar: 'https://placehold.co/100/1A1A1A/FFD700.png?text=P3' },
+  { name: 'Soon', amount: 0, avatar: 'https://placehold.co/100/1A1A1A/FFD700.png?text=P1' },
+  { name: 'Soon', amount: 0, avatar: 'https://placehold.co/100/1A1A1A/FFD700.png?text=P2' },
+  { name: 'Soon', amount: 5, avatar: 'https://placehold.co/100/1A1A1A/FFD700.png?text=P3' },
 ]
 
 
