@@ -33,16 +33,11 @@ export const recentDonors = [
 
 
 export const upcomingEvents = [
-  { name: 'Summer Festival', date: 'Dec 1-3', description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.' },
-  { name: 'PvP Tournament', date: 'Dec 15', description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.' },
-  { name: 'Build Contest', date: 'Dec 22-29', description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.' },
+  { name: 'Coming Soon', date: 'Dec 0-0', description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.' },
+  { name: 'Coming Soon', date: 'Dec 0', description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.' },
+  { name: 'Coming Soon', date: 'Dec 0-0', description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.' },
 ]
 
-export const initialRanks = [
-  { name: 'VIP', price: 5, benefits: 'Priority queue, exclusive prefix' },
-  { name: 'MVP', price: 10, benefits: 'All VIP perks + special items' },
-  { name: 'Elite', price: 20, benefits: 'All MVP perks + private world access' },
-]
 
 export const initialStaff = [
   { name: 'AkaBoy', role: 'Server Owner', avatar: 'https://mc-heads.net/avatar/hypixel/100' },

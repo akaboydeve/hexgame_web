@@ -174,7 +174,7 @@ export default function Home() {
               />
               <div>
                 <h3 className="minecraft-font text-[#FFD700]">{donor.name}</h3>
-                <p className="text-[#FFD700]/80">{donor.amount}</p>
+                <p className="text-[#FFD700]/80">Rs.{donor.amount}</p>
               </div>
             </motion.div>
           ))}
