@@ -20,7 +20,7 @@ export default function Header() {
 
   return (
     <motion.header 
-      className="bg-[#f7f7f7]/90 dark:bg-[#1A1A1A] border-b-2 border-[#5B8731] dark:border-[#FFD700] sticky top-0 z-[1000]"
+      className="bg-[#f7f7f7]/90 dark:bg-[#1A1A1A]/90 border-b-2 border-[#5B8731] dark:border-[#FFD700] sticky top-0 z-[1000]"
       initial={{ opacity: 0, y: -50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
