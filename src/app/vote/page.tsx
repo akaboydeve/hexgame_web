@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 
 const votingSites = [
-  { name: 'MinecraftServers.org', link: 'https://topminecraftservers.org' },
+  { name: 'MinecraftServers.org', link: 'https://topminecraftservers.org/server/23476' },
 ]
 
 export default function VotePage() {
