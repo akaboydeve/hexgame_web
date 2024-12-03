@@ -20,36 +20,27 @@ export default function Home() {
   return (
     <div className="space-y-12">
       {/* Hero Section */}
-      <section className="text-center">
-        <motion.h1 
-          className="text-5xl font-bold mb-4 minecraft-font text-[#5B8731] dark:text-[#FFD700]"
-          initial={{ opacity: 0, y: -50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          <TypewriterEffect
-            words={[{text: "Welcome"},{text: "to"},{text: serverName}]}
-          />
-        </motion.h1>
-        <motion.div
-          className="flex justify-center items-center space-x-4 mb-6"
-          initial={{ opacity: 0, scale: 0.5 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-        >
-          <PixelLetter letter="H" color="bg-[#FF0000]" />
-          <PixelLetter letter="E" color="bg-[#FF0000]" />
-          <PixelLetter letter="X" color="bg-[#FF0000]" />
-          <PixelLetter letter="O" color="bg-[#FF0000]" />
-        </motion.div>
-        <motion.p 
-          className="text-2xl mb-2 minecraft-font"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-        >
-          Join the adventure at
-        </motion.p>
+      <section className="text-center ">
+        <div className="flex flex-col justify-center items-center">
+          <Image src={"/hexgame.svg"} alt="hexgame logo" width={100} height={100} />
+          <motion.h1 
+            className="text-5xl font-bold mb-4 minecraft-font text-[#5B8731] dark:text-[#FFD700]"
+            initial={{ opacity: 0, y: -50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <TypewriterEffect
+              words={[{text: "Welcome"},{text: "to"},{text: serverName}]}
+            />
+          </motion.h1>
+          <motion.p 
+            className="text-2xl mb-2 minecraft-font"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+          >
+            Join the adventure at
+          </motion.p>
           <motion.button 
             className="minecraft-btn px-2 py-1 dark:text-white dark:bg-[#5B8731] dark:hover:bg-[#6B9B3C] dark:border-[#3F5E22] dark:hover:border-[#4A6D28] text-3xl mb-6 minecraft-font cursor-pointer active:scale-95 transition-transform"
             initial={{ opacity: 0 }}
@@ -63,6 +54,17 @@ export default function Home() {
           >
             {serverIp}
           </motion.button>
+        </div>
+        <div className="flex justify-center items-center">
+          <motion.p 
+            className="text-2xl mb-2 minecraft-font max-w-xl"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+          >
+            Join us for an epic Minecraft experience featuring exciting quests, intense boss fights, and a thriving player-driven economy. Explore custom mob spawners, trade securely, challenge your knowledge with fun chat games, and compete on the leaderboard. Create teams, set warps, and be part of a growing community. Ready to embark on your adventure?
+          </motion.p>
+        </div>
       </section>
 
       {/* Call to Action */}
@@ -158,7 +160,7 @@ export default function Home() {
         <div className="flex flex-wrap justify-center gap-6">
           {recentDonors.map((donor, index) => (
             <motion.div 
-              key={donor.name} 
+              key={donor.id} 
               className="minecraft-card flex items-center space-x-4 p-4"
               initial={{ opacity: 0, x: -50 }}
               animate={donorsInView ? { opacity: 1, x: 0 } : {}}
@@ -194,7 +196,7 @@ export default function Home() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {upcomingEvents.map((event, index) => (
             <motion.div 
-              key={event.name} 
+              key={event.id} 
               className="minecraft-card p-4"
               initial={{ opacity: 0, y: 50 }}
               animate={eventsInView ? { opacity: 1, y: 0 } : {}}
@@ -226,55 +228,3 @@ export default function Home() {
     </div>
   )
 }
-
-
-const PixelLetter = ({ letter, color }: { letter: string; color: string }) => {
-  const pixelMap: { [key: string]: boolean[][] } = {
-    'H': [
-      [true, false, false, false, true],
-      [true, false, false, false, true],
-      [true, true, true, true, true],
-      [true, false, false, false, true],
-      [true, false, false, false, true],
-    ],
-    'E': [
-      [true, true, true, true, true],
-      [true, false, false, false, false],
-      [true, true, true, true, false],
-      [true, false, false, false, false],
-      [true, true, true, true, true],
-    ],
-    'X': [
-      [true, false, false, false, true],
-      [false, true, false, true, false],
-      [false, false, true, false, false],
-      [false, true, false, true, false],
-      [true, false, false, false, true],
-    ],
-    'O': [
-      [true, true, true, true, true],
-      [true, false, false, false, true],
-      [true, false, false, false, true],
-      [true, false, false, false, true],
-      [true, true, true, true, true],
-    ]
-  };
-
-  return (
-    <motion.div 
-      className={`grid grid-cols-5 gap-0.5 p-1  rounded`}
-      whileHover={{ scale: 1.1 }}
-      transition={{ type: "spring", stiffness: 400, damping: 10 }}
-    >
-      {pixelMap[letter].flat().map((pixel, index) => (
-        <motion.div 
-          key={index}
-          className={`w-3 h-3 ${pixel && color}`}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: index * 0.01 }}
-        />
-      ))}
-    </motion.div>
-  );
-};

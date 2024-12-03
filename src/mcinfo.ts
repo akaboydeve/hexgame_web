@@ -10,33 +10,33 @@ export const serverFeatures = [
     image: '/grassblock.png'
   },
   {
-    title: 'Creative',
-    description: 'Let your imagination run wild with unlimited resources',
-    image: 'https://placehold.co/300x200/1A1A1A/FFD700.png?text=Creative'
+    title: 'KnockBckFFA [SOON]',
+    description: 'Fight against other players in this fast-paced game mode',
+    image: '/kbffa.png'
   },
   {
-    title: 'Bedwars',
+    title: 'Bedwars [SOON]',
     description: 'Defend your bed and eliminate opponents in this strategic game mode',
     image: '/bw.png'
   },
   {
-    title: 'Minigames',
+    title: 'Minigames [SOON]',
     description: 'Enjoy a variety of fun and exciting minigames',
     image: '/sword.png'
   },
 ]
 
 export const recentDonors = [
-  { name: 'Soon', amount: 0, avatar: 'https://placehold.co/100/1A1A1A/FFD700.png?text=P1' },
-  { name: 'Soon', amount: 0, avatar: 'https://placehold.co/100/1A1A1A/FFD700.png?text=P2' },
-  { name: 'Soon', amount: 5, avatar: 'https://placehold.co/100/1A1A1A/FFD700.png?text=P3' },
+  { id: 1, name: 'Soon', amount: 0, avatar: 'https://placehold.co/100/1A1A1A/FFD700.png?text=P1' },
+  { id:2, name: 'Soon', amount: 0, avatar: 'https://placehold.co/100/1A1A1A/FFD700.png?text=P2' },
+  { id:3, name: 'Soon', amount: 5, avatar: 'https://placehold.co/100/1A1A1A/FFD700.png?text=P3' },
 ]
 
 
 export const upcomingEvents = [
-  { name: 'Coming Soon', date: 'Dec 0-0', description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.' },
-  { name: 'Coming Soon', date: 'Dec 0', description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.' },
-  { name: 'Coming Soon', date: 'Dec 0-0', description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.' },
+  { id:1, name: 'Coming Soon', date: 'Dec 0-0', description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.' },
+  { id:2, name: 'Coming Soon', date: 'Dec 0', description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.' },
+  { id:3, name: 'Coming Soon', date: 'Dec 0-0', description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.' },
 ]
 
 
