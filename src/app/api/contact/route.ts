@@ -7,7 +7,7 @@ export async function POST(req: NextRequest) {
   console.log(origin);
   
   
-  if (websiteLinks.includes(origin)) {
+  if (!websiteLinks.includes(origin)) {
     return NextResponse.json({success: false}, {status: 403});
   }
   

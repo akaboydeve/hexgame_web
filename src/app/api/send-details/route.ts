@@ -5,7 +5,7 @@ export async function POST(req: NextRequest) {
   const websiteLinks = ["https://hexgame.in", "https://hexgame.in/", "https://www.hexgame.in", "https://www.hexgame.in/"];
   const origin = req.nextUrl.origin;
   
-  if (websiteLinks.includes(origin)) {
+  if (!websiteLinks.includes(origin)) {
     return NextResponse.json({success: false}, {status: 403});
   }
 
