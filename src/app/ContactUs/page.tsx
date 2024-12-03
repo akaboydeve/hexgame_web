@@ -11,7 +11,8 @@ export default function ContactPage() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    message: ''
+    message: '',
+    honeypot: ''
   })
   const [loading, setLoading] = useState(false)
 
@@ -27,9 +28,19 @@ export default function ContactPage() {
 
   const handleSubmit = async(e: React.FormEvent) => {
     e.preventDefault()
+
+    if (formData.honeypot) {
+      console.warn("Bot detected. Submission blocked.");
+      return;
+    }
+
     setLoading(true)
     try {
-      const res = await axios.post("/api/contact", formData);
+      const res = await axios.post("/api/contact", {
+        name: formData.name,
+        email: formData.email,
+        message: formData.message,
+      });
       
 
       if (res.status === 200) {
@@ -42,7 +53,7 @@ export default function ContactPage() {
     finally {
       setLoading(false);
     }
-    setFormData({ name: '', email: '', message: '' })
+    setFormData({ name: '', email: '', message: '', honeypot: '', })
   }
 
   return (
@@ -96,6 +107,17 @@ export default function ContactPage() {
               required
               className="minecraft-input w-full h-32"
             ></textarea>
+          </div>
+          <div className="hidden">
+            <label htmlFor="honeypot">Honeypot</label>
+            <input
+              type="text"
+              id="honeypot"
+              name="honeypot"
+              value={formData.honeypot}
+              onChange={handleChange}
+              className="minecraft-input w-full"
+            />
           </div>
           <motion.button
             type="submit"

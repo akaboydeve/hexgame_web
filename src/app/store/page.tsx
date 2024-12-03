@@ -10,6 +10,7 @@ import { Input } from "@/components/ui/input"
 import axios from 'axios'
 import { useToast } from '@/hooks/use-toast'
 import { Loader } from 'lucide-react'
+import { form } from 'motion/react-client'
 
 interface Rank {
   id: number;
@@ -25,25 +26,41 @@ interface Rank {
 export default function StorePage() {
   const [selectedRank, setSelectedRank] = useState<Rank | null>(null);
   const [purchaseRank, setPurchaseRank] = useState<Rank | null>(null);
-  const [payerName, setPayerName] = useState('');
-  const [discordName, setDiscordName] = useState('');
-  const [minecraftIgn, setMinecraftIgn] = useState('');
   const [loading, setLoading] = useState(false);
+  const [formData, setFormData] = useState({
+    payerName: '',
+    discordName: '',
+    minecraftIgn: '',
+    honeypot: '',
+  })
 
   const openModal = (rank: Rank) => setSelectedRank(rank);
   const openPurchaseModal = (rank: Rank) => setPurchaseRank(rank);
   const { toast } = useToast();
 
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target
+    setFormData(prevState => ({
+      ...prevState,
+      [name]: value
+    }))
+  }
+
   const handlePurchase = async(e: any) => {
     e.preventDefault()
+
+    if (formData.honeypot) {
+      console.warn("Bot detected. Submission blocked.");
+      return;
+    }
 
     setLoading(true)
     try {
       const res = await axios.post("/api/send-details", {
-        discordName,
-        minecraftIgn,
+        payerName: formData.payerName,
+        discordName: formData.discordName,
+        minecraftIgn: formData.minecraftIgn,
         rankName: purchaseRank?.name,
-        payerName,
       });
       
       console.log(res)
@@ -60,9 +77,7 @@ export default function StorePage() {
     }
 
     setPurchaseRank(null);
-    setPayerName('');
-    setDiscordName('');
-    setMinecraftIgn('');
+    setFormData({ payerName: '', discordName: '', minecraftIgn: '', honeypot: '' });
   };
 
   return (
@@ -125,20 +140,35 @@ export default function StorePage() {
             </p>
             <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
               <Input
+                name="payerName"
                 placeholder="PAYER Name"
-                value={payerName}
-                onChange={(e) => setPayerName(e.target.value)}
+                value={formData.payerName}
+                onChange={handleChange}
               />
               <Input
+                name="discordName"
                 placeholder="Discord Name"
-                value={discordName}
-                onChange={(e) => setDiscordName(e.target.value)}
+                value={formData.discordName}
+                onChange={handleChange}
               />
               <Input
+                name="minecraftIgn"
                 placeholder="Minecraft IGN"
-                value={minecraftIgn}
-                onChange={(e) => setMinecraftIgn(e.target.value)}
+                value={formData.minecraftIgn}
+                onChange={handleChange}
               />
+              
+              <div className="hidden">
+                <label htmlFor="honeypot">Honeypot</label>
+                <input
+                  type="text"
+                  id="honeypot"
+                  name="honeypot"
+                  value={formData.honeypot}
+                  onChange={handleChange}
+                  className="minecraft-input w-full"
+                />
+              </div>
             </form>
           </div>
           <DialogFooter>
