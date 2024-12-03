@@ -140,9 +140,11 @@ export default function RanksPage() {
                 {ranks.map((rank) => (
                   <td key={rank.id} className="p-4 border border-[#FFD700]">
                     <ul className="list-disc pl-4">
-                      {rank[category as keyof typeof rank]?.map((item: string, i: number) => (
-                        <li key={i}>{item}</li>
-                      )) || 'N/A'}
+                      {Array.isArray(rank[category as keyof typeof rank]) ? (
+                        (rank[category as keyof typeof rank] as string[]).map((item: string, i: number) => (
+                          <li key={i}>{item}</li>
+                        ))
+                      ) : 'N/A'}
                     </ul>
                   </td>
                 ))}
