@@ -1,12 +1,11 @@
-import { websiteLink } from "@/mcinfo";
 import axios from "axios";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest) {
-
+  const websiteLinks = ["https://hexgame.in", "https://hexgame.in/", "https://www.hexgame.in", "https://www.hexgame.in/"];
   const origin = req.nextUrl.origin;
   
-  if (origin !== websiteLink) {
+  if (websiteLinks.includes(origin)) {
     return NextResponse.json({success: false}, {status: 403});
   }
 
