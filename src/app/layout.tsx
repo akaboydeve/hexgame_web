@@ -26,8 +26,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: '/hexgame.png',
-        width: 600,
-        height: 600,
+        width: 300,
+        height: 300,
         alt: 'Hexgame Minecraft Server'
       }
     ],
@@ -39,8 +39,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: '/hexgame.png',
-        width: 600,
-        height: 600,
+        width: 300,
+        height: 300,
         alt: 'Hexgame Minecraft Server'
       }
     ],
@@ -59,7 +59,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.className} min-h-screen flex flex-col`}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           <Header />
           <main className="flex-grow container mx-auto px-4 py-8">
             {children}
