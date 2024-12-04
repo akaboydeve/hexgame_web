@@ -1,6 +1,6 @@
 export const serverName = 'Hexgame'
 export const serverIp = 'play.hexgame.in'
-export const discordLink = "https://discord.gg/J6DfuSsuXV"
+export const discordLink = "https://discord.hexgame.in/"
 export const websiteLink = "https://hexgame.in"
 
 export const serverFeatures = [

@@ -26,8 +26,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: '/hexgame.png',
-        width: 600,
-        height: 600,
+        width: 300,
+        height: 300,
         alt: 'Hexgame Minecraft Server'
       }
     ],
@@ -39,8 +39,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: '/hexgame.png',
-        width: 600,
-        height: 600,
+        width: 300,
+        height: 300,
         alt: 'Hexgame Minecraft Server'
       }
     ],
