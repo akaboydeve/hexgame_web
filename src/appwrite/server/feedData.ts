@@ -4,7 +4,7 @@ import { createAdminClient } from "./config";
 import { initialStaff, ranks } from "@/mcinfo";
 
 export default async function feedData() {
-  // await createRanks();
+  await createRanks();
   await addStaff();
 }
 

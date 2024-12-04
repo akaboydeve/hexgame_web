@@ -1,6 +1,8 @@
 import { db } from "../name";
 import { createAdminClient } from "./config";
 import { 
+  createDonorCollection,
+  createEventCollection,
   createRankCollection,
   createStaffCollection
 } from "./collections";
@@ -24,6 +26,8 @@ export default async function getOrCreateDB() {
       await Promise.all([
         createStaffCollection(),
         createRankCollection(),
+        createEventCollection(),
+        createDonorCollection(),
       ])
       console.log("Collections created");
       console.log("Database connected");

@@ -1,6 +1,7 @@
 import { staffCollection, db } from "@/appwrite/name";
 import { IndexType, Permission, Role } from "node-appwrite";
 import { createAdminClient } from "../config";
+import waitForAttributes from "./waitForAttribute";
 
 export default async function createStaffCollection() {
   const { databases } = await createAdminClient()
@@ -19,5 +20,12 @@ export default async function createStaffCollection() {
     databases.createStringAttribute(db, staffCollection, "name", 50, true),
     databases.createEnumAttribute(db, staffCollection, "role", ["Staff", "Head Admin", "Server Owner", "Management"], true),
     databases.createStringAttribute(db, staffCollection, "avatar", 100, true),
+  ])
+
+  await waitForAttributes(db, staffCollection, ["name"])
+
+  // Creating Indexes
+  await Promise.all([
+    databases.createIndex(db, staffCollection, "name", IndexType.Unique, ["name"]),
   ])
 }
