@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog"
 import { Button } from "@/components/ui/button"
@@ -10,8 +10,10 @@ import { Loader } from 'lucide-react'
 import axios from 'axios'
 import { useToast } from '@/hooks/use-toast'
 import { ranks, discordLink } from '@/mcinfo'
+import { useRouter } from 'next/navigation'
 
 export default function RanksPage() {
+  const [user, setUser] = useState(null)
   const [selectedRank, setSelectedRank] = useState<typeof ranks[0] | null>(null)
   const [purchaseRank, setPurchaseRank] = useState<typeof ranks[0] | null>(null)
   const [loading, setLoading] = useState(false)
@@ -21,14 +23,28 @@ export default function RanksPage() {
     minecraftIgn: '',
     honeypot: '',
   })
+
   const { toast } = useToast()
+  const router = useRouter()
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target
     setFormData(prev => ({ ...prev, [name]: value }))
   }
 
-  const handlePurchase = async(e: React.FormEvent) => {
+  const handlePurchaseBtnClick = async (e: React.FormEvent, rank: typeof ranks[0] | null) => {
+    e.preventDefault()
+    if (user) {
+      setPurchaseRank(rank)
+    }
+    else {
+      router.replace('/login')
+      toast({ title: 'You need to be logged in to purchase ranks', variant: "destructive" })
+    }
+  }
+
+  const handlePurchase = async (e: React.FormEvent) => {
+    
     e.preventDefault()
     if (formData.honeypot) {
       console.warn("Bot detected")
@@ -57,6 +73,18 @@ export default function RanksPage() {
       setFormData({ payerName: '', discordName: '', minecraftIgn: '', honeypot: '' })
     }
   }
+
+  useEffect(() => {
+    const getUser = async () => {
+      try {
+        const res = await axios.get("/api/user")
+        if (res.data.success) setUser(res.data.user)
+      } catch (error) {
+        setUser(null)
+      }
+    }
+    getUser()
+  }, [])
 
   return (
     <div className="min-h-screen bg-[#1A1A1A] py-8 px-4 lg:px-0 xl:px-4 mx-auto max-w-6xl">
@@ -100,7 +128,7 @@ export default function RanksPage() {
                 </Button>
                 <Button 
                   className="w-full bg-green-600 hover:bg-green-700 text-white transition duration-300 transform hover:scale-105"
-                  onClick={() => setPurchaseRank(rank)}
+                  onClick={(e) => handlePurchaseBtnClick(e, rank)}
                 >
                   Purchase Now
                 </Button>
@@ -161,7 +189,7 @@ export default function RanksPage() {
                 <td key={rank.id} className="p-4 border border-[#FFD700]">
                   <Button 
                     className="w-full bg-green-600 hover:bg-green-700 text-white transition duration-300 transform hover:scale-105"
-                    onClick={() => setPurchaseRank(rank)}
+                    onClick={(e) => handlePurchaseBtnClick(e, rank)}
                   >
                     Buy {rank.name}
                   </Button>
