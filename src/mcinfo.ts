@@ -54,7 +54,7 @@ export const ranks = [
   {
     id: 1,
     name: 'Elite Rank',
-    price: 70, // Price in ₹
+    price: 70,
     image: 'https://placehold.co/200/1A1A1A/FFD700.png?text=ELITE',
     features: [
       'TempFly',
@@ -80,7 +80,7 @@ export const ranks = [
   {
     id: 2,
     name: 'Legend Rank',
-    price: 150, // Price in ₹
+    price: 150,
     image: 'https://placehold.co/200/1A1A1A/FFD700.png?text=LEGEND',
     features: [
       'Fly',
@@ -112,7 +112,7 @@ export const ranks = [
   {
     id: 3,
     name: 'Champion Rank',
-    price: 290, // Price in ₹
+    price: 290,
     image: 'https://placehold.co/200/1A1A1A/FFD700.png?text=CHAMPION',
     features: [
       'Access to Fly',
@@ -153,7 +153,7 @@ export const ranks = [
   {
     id: 4,
     name: 'Titan Rank',
-    price: 400, // Price in ₹
+    price: 400,
     image: 'https://placehold.co/200/1A1A1A/FFD700.png?text=TITAN',
     features: [
       'Access to Fly',
