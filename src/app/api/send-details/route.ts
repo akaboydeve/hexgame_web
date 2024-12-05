@@ -4,7 +4,7 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest) {
   try {
-    const user = getLoggedInUser()
+    const user = await getLoggedInUser()
     if (!user) {
       return NextResponse.json({success: false}, {status: 401});
     }
