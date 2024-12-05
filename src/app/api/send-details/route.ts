@@ -1,7 +1,18 @@
+import { getLoggedInUser } from "@/appwrite/server/config";
 import axios from "axios";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest) {
+  try {
+    const user = getLoggedInUser()
+    if (!user) {
+      return NextResponse.json({success: false}, {status: 401});
+    }
+  } catch (error) {
+    console.error('Error getting user:', error);
+    return NextResponse.json({success: false}, {status: 500});
+  }
+
   const allowedLinks = ["https://hexgame.in", "https://www.hexgame.in"];
   const origin = req.headers.get("origin");
   
