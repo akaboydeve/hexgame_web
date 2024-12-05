@@ -40,11 +40,6 @@ export async function createSessionClient() {
 
 
 export async function createAdminClient() {
-  console.log("Endpoint: ", env.appwrite.endpoint);
-  console.log("Project ID: ", env.appwrite.projectId);
-  console.log("API Key: ", env.appwrite.apiKey);
-  
-
   const client = new Client()
     .setEndpoint(env.appwrite.endpoint)
     .setProject(env.appwrite.projectId)
