@@ -1,6 +1,9 @@
+"use client"
+
 import { discordLink, serverIp, serverName } from '@/mcinfo'
 import Image from 'next/image'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 
 const Footer = () => {
   const navLinks = [
@@ -19,9 +22,22 @@ const Footer = () => {
     { href: '/ShippingAndDelivery', label: 'Shipping' },
   ]
 
+  const pathname = usePathname()
+
   return (
     <footer className="dark:bg-[#1A1A1A] border-t-2 border-[#FFD700]">
-      <div className="container mx-auto px-4 pb-4">
+      {pathname.toLowerCase() === "/store" && <div className="bg-slate-800">
+        <div className="max-w-4xl mx-auto text-sm text-center py-3 text-blue-400">
+          The Hexgame server is in no way affiliated with Mojang Studios, nor should it be considered a company endorsed by
+          Mojang Studios. Any contributions or purchases made on the store goes to HexGame
+          For support or a purchase history, please send us a ticket on our {" "}
+          <a href={discordLink} className="text-sky-500">
+            HexGame Discord
+          </a>
+        </div>
+      </div>}
+      <div className="container mx-auto px-4 pb-4 max-w-7xl">
+
         <div className="flex flex-col md:flex-row justify-between items-center py-4">
           <div className="flex items-center mb-6">
             <Image
