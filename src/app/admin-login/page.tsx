@@ -32,6 +32,10 @@ export default function AdminLogin() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+
+    if (formData.honeypot) {
+      return;
+    }
     
     setLoading(true)
     try {
@@ -46,6 +50,8 @@ export default function AdminLogin() {
         toast({title: "LogIn Failed", description: res.data.message, variant: "destructive"})
       }
     } catch (error) {
+      console.log(error);
+
       toast({title: "LogIn Failed", description: "Failed to Login", variant: "destructive"})
       
     } finally {
