@@ -38,19 +38,16 @@ export async function POST(req: NextRequest) {
 
   try {
     const { account } = await createAdminClient();
-    const session = await account.createEmailPasswordSession(
-      email,
-      password
-    );
-
+    const session = await account.createEmailPasswordSession(email, password);
 
     (await cookies()).set(SESSION_COOKIE, session.secret, {
       path: "/",
       httpOnly: true,
-      sameSite: "lax",
-      secure: process.env.NODE_ENV === "production",
+      sameSite: "strict",
+      secure: true,
+      expires: new Date(session.expire),
     });
-
+    
   } catch (error) {
     return NextResponse.json({
       message: "Error logging in", success: false
