@@ -73,6 +73,7 @@ export default function AdminLogin() {
               <Label htmlFor="email">Email</Label>
               <Input
                 id="email"
+                name="email"
                 type="email"
                 placeholder="You should know this"
                 required
@@ -84,6 +85,7 @@ export default function AdminLogin() {
               <Label htmlFor="password">Password</Label>
               <Input
                 id="password"
+                name="password"
                 type="password"
                 placeholder="You should know this too"
                 required
