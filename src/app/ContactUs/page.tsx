@@ -29,6 +29,11 @@ export default function ContactPage() {
   const handleSubmit = async(e: React.FormEvent) => {
     e.preventDefault()
 
+    if (!localStorage.getItem("user")) {
+      toast({title: 'You need to login to send a message.', variant: "destructive"});
+      return;
+    }
+
     if (formData.honeypot) {
       console.warn("Bot detected. Submission blocked.");
       return;

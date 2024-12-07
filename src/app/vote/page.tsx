@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 
 const votingSites = [
-  { name: 'MinecraftServers.org', link: 'https://topminecraftservers.org/server/23476' },
+  { name: 'TopMinecraftServers.org', link: 'https://topminecraftservers.org/server/23476' },
 ]
 
 export default function VotePage() {
@@ -12,7 +12,7 @@ export default function VotePage() {
       <p className="text-center mb-8">Support us by voting on these websites. Each vote helps us grow and improve!</p>
       <div className="flex justify-center items-center">
         {votingSites.map((site) => (
-          <Card key={site.name}>
+          <Card key={site.name} className="bg-zinc-800">
             <CardHeader>
               <CardTitle>{site.name}</CardTitle>
             </CardHeader>
@@ -20,8 +20,8 @@ export default function VotePage() {
               <p>Vote for us on {site.name} to help us climb the rankings!</p>
             </CardContent>
             <CardFooter>
-              <Button asChild className="bg-gray-800 hover:bg-gray-700 rounded-[0.5rem]">
-                <a href={site.link} target="_blank" rel="noopener noreferrer">Vote Now</a>
+              <Button asChild className="bg-gray-800 hover:bg-slate-700 rounded-[0.5rem]">
+                <a href={site.link} target="_blank" rel="noopener noreferrer" className="text-green-600">Vote Now</a>
               </Button>
             </CardFooter>
           </Card>

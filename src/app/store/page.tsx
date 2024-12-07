@@ -75,15 +75,12 @@ export default function RanksPage() {
   }
 
   useEffect(() => {
-    const getUser = async () => {
-      try {
-        const res = await axios.get("/api/user")
-        if (res.data.success) setUser(res.data.user)
-      } catch (error) {
-        setUser(null)
-      }
+    const user = localStorage.getItem('user')
+
+    if (user) {
+      setUser(JSON.parse(user))
     }
-    getUser()
+
   }, [])
 
   return (
