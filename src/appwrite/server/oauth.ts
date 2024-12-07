@@ -6,9 +6,11 @@ import { OAuthProvider } from "node-appwrite";
 
 export async function signInWithGoogle() {
   const { account } = await createAdminClient();
+  const appUrl = process.env.NODE_ENV === "production" ? process.env.NEXT_PUBLIC_APP_URL : "http://localhost:3000";
+  console.log(appUrl)
   
-  const successUrl = `https://hexgame.in/api/oauth`;
-  const failureUrl = `https://hexgame.in/login`;
+  const successUrl = `${appUrl}/api/oauth`;
+  const failureUrl = `${appUrl}/login`;
 
   const redirectUrl = await account.createOAuth2Token(
     OAuthProvider.Google,
