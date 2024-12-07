@@ -29,7 +29,10 @@ export default function Header() {
     setLoading(true)
     try {
       const { data } = await axios.get("/api/user/logout")
-      if (data.success) setUser(null)
+      if (data.success) {
+        setUser(null)
+        localStorage.removeItem("user")
+      }
     }
     catch (error) {
       toast({title: "Error", description: "Failed to logout", variant: "destructive"})
@@ -44,7 +47,10 @@ export default function Header() {
       setLoading(true)
       try {
         const res = await axios.get("/api/user")
-        if (res.data.success) setUser(res.data.user)
+        if (res.data.success) {
+          setUser(res.data.user)
+          localStorage.setItem("user", JSON.stringify(res.data.user))
+        }
       } catch (error) {
         setUser(null)
       } finally {
