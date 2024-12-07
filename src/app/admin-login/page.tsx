@@ -49,11 +49,8 @@ export default function AdminLogin() {
       } else {
         toast({title: "LogIn Failed", description: res.data.message, variant: "destructive"})
       }
-    } catch (error) {
-      console.log(error);
-
-      toast({title: "LogIn Failed", description: "Failed to Login", variant: "destructive"})
-      
+    } catch (error: any) {
+      toast({title: "LogIn Failed", description: error.response.data.message || error.message, variant: "destructive"})      
     } finally {
       setLoading(false)
     }
