@@ -47,6 +47,10 @@ export async function POST(req: NextRequest) {
       secure: true,
       expires: new Date(session.expire),
     });
+
+    return NextResponse.json({
+      message: "Logged in successfully", success: true
+    }, { status: 200 });
     
   } catch (error) {
     return NextResponse.json({
