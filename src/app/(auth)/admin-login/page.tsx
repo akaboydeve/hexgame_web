@@ -8,6 +8,7 @@ import { Label } from "@/components/ui/label"
 import { useToast } from "@/hooks/use-toast"
 import axios from "axios"
 import { Loader2 } from "lucide-react"
+import { useRouter } from "next/navigation"
 import { useState } from "react"
 
 export default function AdminLogin() {
@@ -20,6 +21,7 @@ export default function AdminLogin() {
   const [loading, setLoading] = useState(false)
 
   const { toast } = useToast()
+  const router = useRouter()
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
@@ -45,7 +47,8 @@ export default function AdminLogin() {
       })
 
       if (res.data.success) {
-        toast({title: "LogIn Success", description: res.data.message})
+        toast({ title: "LogIn Success", description: res.data.message })
+        router.replace("/admin")
       } else {
         toast({title: "LogIn Failed", description: res.data.message, variant: "destructive"})
       }

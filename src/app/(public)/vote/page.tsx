@@ -20,8 +20,8 @@ export default function VotePage() {
               <p>Vote for us on {site.name} to help us climb the rankings!</p>
             </CardContent>
             <CardFooter>
-              <Button asChild className="bg-gray-800 hover:bg-slate-700 rounded-[0.5rem]">
-                <a href={site.link} target="_blank" rel="noopener noreferrer" className="text-green-600">Vote Now</a>
+              <Button asChild className="bg-gray-800 hover:bg-slate-700 rounded-[0.5rem] text-green-600">
+                <a href={site.link} target="_blank" rel="noopener noreferrer">Vote Now</a>
               </Button>
             </CardFooter>
           </Card>
