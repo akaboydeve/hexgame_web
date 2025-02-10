@@ -3,6 +3,8 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 
 const votingSites = [
   { name: 'TopMinecraftServers.org', link: 'https://topminecraftservers.org/server/23476' },
+  { name: 'Servers-minecraft.net', link: 'https://servers-minecraft.net/server-hexgame.40992' },
+  { name: 'Topg.org', link: 'https://topg.org/minecraft-servers/server-670526' }
 ]
 
 export default function VotePage() {
@@ -10,7 +12,7 @@ export default function VotePage() {
     <div className="container mx-auto px-4 py-8">
       <h1 className="text-4xl font-bold mb-8 text-center">Vote for Our Server</h1>
       <p className="text-center mb-8">Support us by voting on these websites. Each vote helps us grow and improve!</p>
-      <div className="flex justify-center items-center">
+      <div className="flex justify-center items-center m-4 space-x-4">
         {votingSites.map((site) => (
           <Card key={site.name} className="bg-zinc-800">
             <CardHeader>
@@ -20,8 +22,8 @@ export default function VotePage() {
               <p>Vote for us on {site.name} to help us climb the rankings!</p>
             </CardContent>
             <CardFooter>
-              <Button asChild className="bg-gray-800 hover:bg-slate-700 rounded-[0.5rem] text-green-600">
-                <a href={site.link} target="_blank" rel="noopener noreferrer">Vote Now</a>
+              <Button type="button" className="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
+              <a href={site.link} target="_blank" rel="noopener noreferrer">Vote Now</a>
               </Button>
             </CardFooter>
           </Card>
