@@ -4,7 +4,8 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 const votingSites = [
   { name: 'TopMinecraftServers.org', link: 'https://topminecraftservers.org/server/23476' },
   { name: 'Servers-minecraft.net', link: 'https://servers-minecraft.net/server-hexgame.40992' },
-  { name: 'Topg.org', link: 'https://topg.org/minecraft-servers/server-670526' }
+  { name: 'Topg.org', link: 'https://topg.org/minecraft-servers/server-670526' },
+  { name: 'Minecraft-mp.com', link: 'https://minecraft-mp.com/server-s340732' }
 ]
 
 export default function VotePage() {
