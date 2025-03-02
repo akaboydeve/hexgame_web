@@ -1,4 +1,4 @@
-'use client'
+// 'use client'
 
 // import { useEffect, useState } from 'react'
 // import Image from 'next/image'
@@ -311,7 +311,7 @@
 
 import { serverName } from "@/mcinfo";
 
-export default function AboutPage() {
+export default function RanksPage() {
   return (
     <div className="container mx-auto px-4">
       <h1 className="text-4xl font-bold mb-4 text-center">RANKS</h1>
